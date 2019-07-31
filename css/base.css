@@ -1,0 +1,83 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-width: 1220px;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font: 12px/1.5 tahoma, verdana, arial, helvetica, sans-serif, "宋体";
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #f00;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    *zoom: 1;
+    /* IE6 7 */
+}
+
+ul,
+li,
+dl,
+dt,
+dd,
+ol {
+    list-style: none;
+}
+
+img {
+    border: none;
+}
