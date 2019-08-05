@@ -649,7 +649,7 @@ body {
     font-size: 13px;
     position: absolute;
     right: 36px;
-    top: 34px;
+    top: 28px;
     background: #f1220e;
     text-align: center;
     color: #fff;
@@ -658,10 +658,15 @@ body {
 
 }
 
+.main2 .wrapper .goods-left {
+    display: flex;
+}
+
 .main2 .wrapper .goods-left>ul {
+    width: 600px;
     display: grid;
-    grid-template-columns: 352px 294px 294px 237px;
-    grid-auto-rows: 288px 288px 288px 288px;
+    grid-template-columns: 294px 294px;
+    grid-auto-rows: 288px 288px;
     grid-gap: 5px;
 }
 
@@ -672,13 +677,13 @@ body {
     height: 100%;
 }
 
-.main2 .wrapper .goods-left>ul li:nth-child(1) {
-    grid-row-start: 1;
-    grid-row-end: 3;
+/* ----------------- */
+.main2 .wrapper .goods-left .first {
+    width: 359px;
     position: relative;
 }
 
-.main2 .wrapper .goods-left li:nth-child(1)>ul {
+.main2 .wrapper .goods-left .first>ul {
     width: 100%;
     height: 182px;
     padding: 10px 0px 0 0px;
@@ -693,7 +698,7 @@ body {
     /* border: 1px solid red; */
 }
 
-.main2 .wrapper .goods-left li:nth-child(1)>ul>li {
+.main2 .wrapper .goods-left .first>ul>li {
     float: left;
     width: 48px;
     height: 48px;
@@ -703,7 +708,7 @@ body {
     margin-left: 26px;
 }
 
-.main2 .wrapper .goods-left li:nth-child(1)>ul>li>a {
+.main2 .wrapper .goods-left .first>ul>li>a {
     color: #5d5d5d;
     background: #fff;
     display: block;
@@ -718,23 +723,20 @@ body {
     overflow: hidden;
 }
 
-
-.main2 .wrapper .goods-left>ul .new {
-    grid-row-start: 1;
-    grid-row-end: 3;
-    grid-column-start: 4;
-    grid-column-end: 5;
-    border: 1px solid #ccc;
+/* -----------------------test */
+.main2 .wrapper .goods-left .new-big {
+    width: 237px;
+    height: 580px;
     background: #fff;
-    position: relative;
+
 }
 
-.main2 .wrapper .goods-left>ul .new>h3 {
+.main2 .wrapper .goods-left .new-big>h3 {
     height: 60px;
     line-height: 60px;
     padding-left: 10px;
     border-bottom: 1px solid #ccc;
-    background: #fff;
+
 
 }
 
@@ -1096,6 +1098,7 @@ body {
     color: #666;
     font-size: 12px;
 }
+
 /* 回到顶部 */
 .footer .go-back {
     display: block;
@@ -1105,10 +1108,12 @@ body {
     right: 0;
     top: 70%;
 }
-.footer .go-back >img {
+
+.footer .go-back>img {
     width: 100%;
     height: 100%;
 }
+
 .footer .qq {
     position: fixed;
     right: 0;

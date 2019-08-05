@@ -56,17 +56,18 @@ $(function () {
             $(this).children(".cat-content").css("display", "none")
         })
     });
-    //秒杀功能的倒计时
-    let date = new Date(2019, 8, 4, 21, 36).getTime();
+    //秒杀模块倒计时
+    let date = new Date(2019, 7, 5, 18, 1).getTime(); //月份减1
     let endDate = (date - new Date().getTime()) / 1000;
 
     function timer() {
         endDate -= 1;
         if (endDate <= 0) {
             clearInterval(timing);
-            $(".timer").children(".h").html(0);
-            $(".timer").children(".m").html(0);
-            $(".timer").children(".s").html(0);
+            $(".timer").children(".h").html('00');
+            $(".timer").children(".m").html('00');
+            $(".timer").children(".s").html('00');
+            return;
         }
         let h = bl(parseInt(endDate / 60 / 60) % 24);
         let m = bl(parseInt(endDate / 60) % 60);
@@ -466,75 +467,88 @@ $(function () {
     }
     $.ajax({
         type: "get",
-        url: "../php/indexListData.json",
+        url: "../php/indexListData.1.json",
         dataType: "json",
         success: function (data) {
             // console.log(data);
-            renderUI(data, '0', $(".box1"))
+            //  renderUI(data, '0', $(".box1"))
+            (new renderGoodsList(data, $(".box1"))).init()
         }
     });
-
 
     $.ajax({
         type: "get",
         url: "../php/NewList.json",
         dataType: "json",
         success: function (data) {
-            // console.log(data);
-            (new NewListManager(data, 'true', 'false', 'false', 1, 1800, 0, $(".box1 .newBanner"))).init();
+            (new NewListManager(data, 'true', 'false', 'false', 1, 1800, 0, $(".box1 .new-big").children(".newBanner"))).init();
         }
     });
-    $.ajax({
-        type: "get",
-        url: "../php/indexListData.json",
-        dataType: "json",
-        success: function (data) {
-            // console.log(data);
-            renderUI(data, '0', $(".box2"))
+    class renderGoodsList {
+        constructor(data, root) {
+            this.data = data;
+            this.root = root;
+            this.goodsList = null;
+            this.goodsLeft = null;
+            this.newBig = null;
+            this.first = null;
         }
-    });
-
-
-    $.ajax({
-        type: "get",
-        url: "../php/NewList.json",
-        dataType: "json",
-        success: function (data) {
-            // console.log(data);
-            (new NewListManager(data, 'true', 'false', 'false', 1, 1800, 0, $(".box2 .newBanner"))).init();
+        init() {
+            this.createHTML();
+            this.root.append(this.goodsList);
+            this.renderUI();
         }
-    });
+        createHTML() {
+            this.goodsList = document.createElement("div");
+            this.goodsList.className = "goods-list";
+            this.goodsLeft = document.createElement("div");
+            this.goodsLeft.className = "goods-left";
+            this.newBig = document.createElement("div");
+            this.newBig.className = "new-big";
+            this.first = document.createElement("div");
+            this.first.className = "first";
+            this.oul = document.createElement("ul");
+            this.oul.className = "clearfix";
+            this.minder = document.createElement("ul");
+            this.h2 = document.createElement("h2");
+            this.a = document.createElement("a");
+            this.first.appendChild(this.a);
+            this.first.appendChild(this.oul);
+            this.goodsList.appendChild(this.h2);
 
-    function renderUI(data, index, root) {
-        let tempul = "";
-        let html = data.map(value => {
-            tempul = value.classify.map(value => {
-                return ` <li><a href="" title="t恤">${value}</a></li>`
+            this.goodsLeft.appendChild(this.first);
+            this.goodsLeft.appendChild(this.minder);
+            this.goodsLeft.appendChild(this.newBig);
+
+            this.goodsList.appendChild(this.goodsLeft);
+
+
+
+
+
+        }
+        renderUI() {
+            let html = this.data.map(value => {
+                //  console.log(value.bigsrc);
+                this.a.innerHTML = `<img src="${value.bigsrc}" alt="">`
+                let item = value.leftsrc.map(value => {
+                    return `  <li><a href=""><img src="${value}" alt=""></a></li>`
+                }).join("");
+                this.minder.innerHTML = item;
+                let item1 = value.classify.map(value => {
+                    return ` <li><a href="" title="t恤">${value}</a></li>`
+                }).join("");
+                this.oul.innerHTML = item1;
+
+                return ` ${value.type}<a href="" class="more">更多好货</a>`
             }).join("");
-            // console.log(tempul);
+            this.h2.innerHTML = html;
+            this.newBig.innerHTML = `
+            <h3>新鲜抢批</h3>
+            <div class="newBanner"></div>`;
+      
 
-            let temp = value.leftsrc.map((value, i) => {
-                return `<li ><a href=""><img src="${value}" alt=""></a>
-                </li>`
-
-            }).join("");
-            // console.log(temp);
-            return `  <div class="goods-list">
-           <h2>${value.type}<a href="" class="more">更多好货</a></h2>
-           <div class="goods-left">
-               <ul>
-                ${temp}
-                   <li class="new">
-                       <h3>新鲜抢批</h3>
-                       <div class="newBanner"></div>               
-                   </li>
-               </ul>
-           </div>
-       </div>`
-        }).join("");
-        root.html(html);
-        root.children(".goods-list").children(".goods-left").children("ul").children("li").eq(index).append(` <ul class="clearfix">${tempul} </ul>`);
-
+        }
     }
     //    ----------------------------
     //底部轮播
@@ -600,3 +614,32 @@ $(function () {
 
     // })
 })
+
+//  let tempdiv = "";
+// let html = data.map(value => {
+//         tempdiv = value.classify.map(value => {
+//             return ` <li><a href="" title="t恤">${value}</a></li>`
+//         }).join("");
+//         // console.log(tempul);
+
+//         let temp = value.leftsrc.map((value, i) => {
+//             return `<li ><a href=""><img src="${value}" alt=""></a>
+//             </li>`
+
+//         }).join("");
+//         // console.log(temp);
+//         return `  <div class="goods-list">
+//        <h2>${value.type}<a href="" class="more">更多好货</a></h2>
+//        <div class="goods-left">
+//            <ul>
+//             ${temp}
+//                <li class="new">
+//                    <h3>新鲜抢批</h3>
+//                    <div class="newBanner"></div>               
+//                </li>
+//            </ul>
+//        </div>
+//    </div>`
+//  }).join("");
+// root.html(html);
+// root.children(".goods-list").children(".goods-left").children("ul").children("li").eq(index).append(` <ul class="clearfix">${tempul} </ul>`);
