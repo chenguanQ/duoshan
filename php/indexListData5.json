@@ -1,0 +1,6 @@
+[{
+    "type": "男装货源",
+    "bigsrc": "../img/index/ia_100000153.jpg",
+    "leftsrc": ["../img/index/ia_100000149.jpg", "../img/index/ia_100000150.jpg", "../img/index/ia_100000151.jpg", "../img/index/ia_100000152.jpg"],
+    "classify": ["t恤", "卫衣", "衬衫", "雪纺/蕾丝衫", "连衣裙", "半身裙", "套装裙", "开衫", "套头"]
+}]

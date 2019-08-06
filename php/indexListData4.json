@@ -1,0 +1,6 @@
+[{
+    "type": "童装母婴货源",
+    "bigsrc": "../img/index/ia_100000116.jpg",
+    "leftsrc": ["../img/index/ia_100000117.jpg", "../img/index/ia_100000118.jpg", "../img/index/ia_100000119.jpg", "../img/index/ia_100000120.jpg"],
+    "classify": ["t恤", "卫衣", "衬衫", "雪纺/蕾丝衫", "连衣裙", "半身裙", "套装裙", "开衫", "套头"]
+}]

@@ -1,0 +1,6 @@
+[{
+    "type": "箱包货源",
+    "bigsrc": "../img/index/ia_100000094.jpg",
+    "leftsrc": ["../img/index/xb1.jpg", "../img/index/ia_100000090.jpg", "../img/index/ia_100000091.jpg", "../img/index/ia_100000093.jpg"],
+    "classify": ["t恤", "卫衣", "衬衫", "雪纺/蕾丝衫", "连衣裙", "半身裙", "套装裙", "开衫", "套头"]
+}]

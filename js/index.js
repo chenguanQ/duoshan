@@ -472,7 +472,7 @@ $(function () {
         success: function (data) {
             // console.log(data);
             //  renderUI(data, '0', $(".box1"))
-            (new renderGoodsList(data, $(".box1"))).init()
+            (new renderGoodsList(data, $(".box1"),true)).init()
         }
     });
 
@@ -484,10 +484,87 @@ $(function () {
             (new NewListManager(data, 'true', 'false', 'false', 1, 1800, 0, $(".box1 .new-big").children(".newBanner"))).init();
         }
     });
+    $.ajax({
+        type: "get",
+        url: "../php/indexListData2.json",
+        dataType: "json",
+        success: function (data) {
+            // console.log(data);
+            //  renderUI(data, '0', $(".box1"))
+            (new renderGoodsList(data, $(".box2"),false)).init()
+        }
+    });
+
+    $.ajax({
+        type: "get",
+        url: "../php/NewList2.json",
+        dataType: "json",
+        success: function (data) {
+            (new NewListManager(data, 'true', 'false', 'false', 1, 1800, 0, $(".box2 .new-big").children(".newBanner"))).init();
+        }
+    });
+    $.ajax({
+        type: "get",
+        url: "../php/indexListData3.json",
+        dataType: "json",
+        success: function (data) {
+            // console.log(data);
+            //  renderUI(data, '0', $(".box1"))
+            (new renderGoodsList(data, $(".box3"),false)).init()
+        }
+    });
+
+    $.ajax({
+        type: "get",
+        url: "../php/NewList3.json",
+        dataType: "json",
+        success: function (data) {
+            (new NewListManager(data, 'true', 'false', 'false', 1, 1800, 0, $(".box3 .new-big").children(".newBanner"))).init();
+        }
+    });
+    $.ajax({
+        type: "get",
+        url: "../php/indexListData4.json",
+        dataType: "json",
+        success: function (data) {
+            // console.log(data);
+            //  renderUI(data, '0', $(".box1"))
+            (new renderGoodsList(data, $(".box4"),true)).init()
+        }
+    });
+
+    $.ajax({
+        type: "get",
+        url: "../php/NewList4.json",
+        dataType: "json",
+        success: function (data) {
+            (new NewListManager(data, 'true', 'false', 'false', 1, 1800, 0, $(".box4 .new-big").children(".newBanner"))).init();
+        }
+    });
+    $.ajax({
+        type: "get",
+        url: "../php/indexListData5.json",
+        dataType: "json",
+        success: function (data) {
+            // console.log(data);
+            //  renderUI(data, '0', $(".box1"))
+            (new renderGoodsList(data, $(".box5"),false)).init()
+        }
+    });
+
+    $.ajax({
+        type: "get",
+        url: "../php/NewList5.json",
+        dataType: "json",
+        success: function (data) {
+            (new NewListManager(data, 'true', 'false', 'false', 1, 1800, 0, $(".box5 .new-big").children(".newBanner"))).init();
+        }
+    });
     class renderGoodsList {
-        constructor(data, root) {
+        constructor(data, root ,status) {
             this.data = data;
             this.root = root;
+            this.status = status;
             this.goodsList = null;
             this.goodsLeft = null;
             this.newBig = null;
@@ -516,16 +593,16 @@ $(function () {
             this.first.appendChild(this.oul);
             this.goodsList.appendChild(this.h2);
 
-            this.goodsLeft.appendChild(this.first);
+            if (this.status == true){
+                this.goodsLeft.appendChild(this.first);
             this.goodsLeft.appendChild(this.minder);
-            this.goodsLeft.appendChild(this.newBig);
-
+            this.goodsLeft.appendChild(this.newBig);    
+            }else if (this.status == false){
+                this.goodsLeft.appendChild(this.newBig); 
+                this.goodsLeft.appendChild(this.minder);
+                this.goodsLeft.appendChild(this.first); 
+            }
             this.goodsList.appendChild(this.goodsLeft);
-
-
-
-
-
         }
         renderUI() {
             let html = this.data.map(value => {
