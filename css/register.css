@@ -1,0 +1,262 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#ds {
+    width: 100%;
+    height: 100%;
+}
+
+#ds .register {
+    width: 100%;
+
+}
+
+#ds .register .header {
+    width: 100%;
+    background: #f3f3f3;
+}
+
+.register .header .wrapper {
+    width: 1220px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.register .header .wrapper .top-left {
+    width: 383px;
+}
+
+.register .header .wrapper a {
+    font-size: 13px;
+    line-height: 26px;
+}
+
+.register .header .wrapper .top-left>a {
+    margin-right: 13px;
+
+}
+
+.register .header .wrapper .top-left>a>i {
+    display: inline-block;
+    width: 18px;
+    height: 15px;
+    background: url(../img/index/ia_200000006.png) no-repeat left center;
+}
+
+.register .header .wrapper .top-left .text {
+    color: #666666;
+    font-size: 13px;
+    line-height: 26px;
+    margin-right: 10px;
+}
+
+.register .header .wrapper .top-right {
+    display: flex;
+    height: 26px;
+    line-height: 26px;
+    align-items: center;
+
+}
+
+.register .header .wrapper .top-right>a i {
+    display: inline-block;
+    height: 26px;
+    width: 20px;
+    background: url(../img/index/ia_200000010.png)no-repeat center center;
+}
+
+.register .header .wrapper .top-right a:nth-child(1) i {
+    background-position-y: 7px;
+}
+
+.register .header .wrapper .top-right a:nth-child(4) i {
+    background-position-y: -20px;
+}
+
+.register .header .wrapper .top-right a {
+    display: inline-block;
+    line-height: 26px;
+    font-size: 13px;
+
+}
+
+#ds .head {
+    width: 100%;
+}
+
+#ds .head .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.head .wrapper .logo {
+    height: 68px;
+    margin-top: 30px;
+}
+
+.head .wrapper .logo>a {
+    width: 245px;
+    height: 55px;
+}
+
+.head .wrapper .logo>span {
+    font-size: 28px;
+    color: #333333;
+    margin-left: 37px;
+}
+
+/* -------------------------------main */
+
+#ds .register .main {
+    width: 100%;
+}
+
+.register .main .wrapper {
+    width: 1220px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.register .main .wrapper .reg-content {
+    width: 550px;
+    margin: 50px auto 0px;
+    margin-bottom: 20px;
+    /* border: 1px solid red; */
+}
+
+.main .wrapper .reg-content .form-item {
+    margin-bottom: 20px;
+}
+
+.register .main .wrapper .reg-content .label {
+    height: 27px;
+    line-height: 27px;
+    margin: 0px;
+    width: 80px;
+    text-align: right;
+    display: inline-block;
+    color: #3c3c3c;
+}
+
+.register .main .wrapper .reg-content form .txt {
+    display: inline-block;
+    position: relative;
+
+}
+
+.register .main .wrapper .reg-content form input {
+    border: 1px solid #CCCCCC;
+    font-size: 12px;
+    height: 25px;
+    line-height: 25px;
+    padding: 4px 2px 4px 3px;
+    width: 253px;
+    color: #3e3e3e;
+    margin-right: 60px;
+}
+
+.register .main .wrapper .reg-content #captcha {
+    position: absolute;
+    right: 200px;
+    bottom: 2px;
+}
+
+.register .main .wrapper .reg-content .reset {
+    display: block;
+    width: 26px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 170px;
+    bottom: 3px;
+
+}
+
+.register .main .wrapper .reg-content .reset>img {
+    width: 100%;
+    height: 100%;
+}
+
+.register .main .wrapper .agree {
+    padding-left: 60px;
+    line-height: 20px;
+}
+
+.register .main .wrapper .next-btn {
+    width: 306px;
+    height: 34px;
+    margin-top: 15px;
+    margin-left: 8px;
+}
+
+.register .main .wrapper .next-btn a {
+    background: #f3210a;
+    color: #fff;
+    display: block;
+    width: 300px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.register .main .wrapper .form-group-message {
+    font-size: 12px;
+    display: inline-block;
+    color: red;
+    border: 1px solid pink;
+    padding: 10px 10px 10px 20px;
+    background: url(../img/index/error.png) no-repeat 0 center;
+    display: none;
+    position: absolute;
+    right: -80px;
+    top: 0;
+}
+
+.register .main .wrapper .agree {
+    position: relative;
+}
+
+.register .main .wrapper .agree .errorDes {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+}
+
+.register .main .wrapper .active {
+    display: inline-block;
+}
+
+.register .main .wrapper .skip {
+    width: 421px;
+    height: 370px;
+    position: absolute;
+    left: 28%;
+    top: -21%;
+    z-index: 20;
+    background: #fff;
+    display: none;
+}
+
+.register .main .wrapper .skip .ok {
+    width: 90px;
+    position: absolute;
+    left: 158px;
+    top: 127px;
+}
+
+.register .main .wrapper .skip >div{
+   color:  #D81E06;
+   font-size: 25px;
+   position: absolute;
+   left: 35px;
+   top: 255px;
+}

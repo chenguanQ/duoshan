@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../img/duoshan.ico">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="../src/jquery-3.4.1.js"></script>
+    <script src="../src/include.js"></script>
+    <script src="../src/cookie.js"></script>
+    <script src="../src/captcha.js"></script>
+    <script src="../js/register.js"></script>
+    <title>用户注册</title>
+</head>
+
+<body>
+    <div id="ds">
+        <div class="register">
+            <div class="header">
+                <div class="wrapper">
+                    <div class="top-left">
+                        <a href=""><i></i>多商首页</a>
+                        <span class="text">你好，欢迎来到多商网!</span>
+                        <a href="http://127.0.0.1/code/tempDepot1/duoshan/html/login.html">[请登录]</a>
+                        <a href="">[免费注册]</a>
+                    </div>
+                    <div class="top-right">
+                        <a href=""><i></i> 购物车</a>
+                        <a href=""><i></i> 多商App</a>
+                        <a href=""><i></i> 手机多商</a>
+                        <a href=""><i></i> 帮助中心</a>
+                    </div>
+                </div>
+            </div>
+            <div class="head">
+                <div class="wrapper">
+                    <div class="logo">
+                        <a href="http://127.0.0.1/code/tempDepot1/duoshan/html/duoShan.html#"> <img
+                                src="../img/index/loginlg.png" alt=""></a>
+                        <span>用户注册</span>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="wrapper">
+                    <div class="reg-content">
+                        <form>
+                            <div class="form-item username">
+                                <span class="label">用户名 : </span>
+                                <div class="txt"> <input type="text" placeholder="用户名" maxlength="15" id="usernameID">
+                                    <span class="form-group-message">请填写信息!</span>
+                                </div>
+                            </div>
+                            <div class="form-item phone">
+                                <span class="label"> 手机 : </span>
+                                <div class="txt"> <input type="text" placeholder="手机" maxlength="15" id="phoneID">
+                                    <span class="form-group-message">请填写信息!</span>
+                                </div>
+                            </div>
+                            <div class="form-item password">
+                                <span class="label"> 密码 : </span>
+                                <div class="txt"> <input type="text" placeholder="密码" maxlength="15" id="passwordID">
+                                    <span class="form-group-message">请填写信息!</span>
+                                </div>
+                            </div>
+                            <div class="form-item imgcode">
+                                <span class="label">验证码 : </span>
+                                <div class="txt" style="position: relative; width: 420px;"><input type="text"
+                                        placeholder="验证码" maxlength="4" id="imgCode"
+                                        style="width: 113px; margin-right: 200px;">
+                                    <span class="form-group-message">请填写信息!</span>
+                                    <canvas width="92" height="35" id="captcha"></canvas>
+                                    <b class="reset"><img src="../img/index/res1.png" alt=""></b>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="form-item agree">
+                            <div><input name="protocol" id="protocol" type="checkbox"> <label for="">我已阅读并同意</label> <a
+                                    href="" style="color: #005aa0;">《多商分销系统用户服务协议》</a>
+                                <span class="errorDes form-group-message ">请选择!</span>
+                            </div>
+                            <div class="next-btn">
+                                <a href="javascript:void(0);" id="regist">立即注册，领取淘宝课程券</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skip">
+                        <img src="../img/index/ok1.png" alt="" class="ok">
+                        <div>注册成功,正在跳转到多商首页...</div>
+                    </div>
+                </div>
+                <include src="./footer.html"></include>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

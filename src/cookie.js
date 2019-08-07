@@ -7,8 +7,6 @@ let Cookie = {
                 return temp[1];
             }
         }
-     
-      
     },
     setItem(key, value, day) {
         if (day) {

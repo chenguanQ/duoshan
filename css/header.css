@@ -1,0 +1,125 @@
+#ds .header {
+    width: 100%;
+    background: #3E3E3E;
+}
+
+#ds .header .wrapper {
+    width: 1220px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .wrapper a {
+    color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.header .wrapper .h-left {
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.header .wrapper .h-left span:nth-child(1) {
+    margin-right: 26px;
+}
+
+.header .wrapper .h-left span:nth-child(2) a {
+    margin-right: 5px;
+}
+
+.header .wrapper .h-right li {
+    float: left;
+    margin-right: 30px;
+}
+
+.head {
+    width: 100%;
+    padding-top: 30px;
+
+}
+
+.head .wrapper {
+    width: 1220px;
+    height: 90px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.head .wrapper .logo {
+    margin-right: 50px;
+    width: 209px;
+    float: left;
+    margin-top: 8px;
+    height: 48px;
+}
+
+.head .wrapper .search {
+    /* background: pink; */
+    width: 508px;
+    margin-left: 300px;
+}
+
+.head .wrapper .search .search_wrap {
+    height: 37px;
+    border: 1px solid #d8ddd7;
+    background: #fff;
+    border-radius: 12px;
+    padding-left: 36px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.head .wrapper .search .search_wrap .input {
+    border: 0 none;
+    outline: none;
+    display: block;
+    line-height: 33px;
+    width: 393px;
+}
+
+.head .wrapper .search .search_wrap .camera {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 9px;
+    top: 10px;
+    visibility: visible;
+}
+
+.head .wrapper .search .search_wrap .btn {
+    display: block;
+    width: 64px;
+    height: 35px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+}
+
+.head .wrapper .search .search_hot>li {
+    float: left;
+    max-width: 70px;
+    margin-right: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.head .wrapper .search .search_hot a {
+    color: #b5aeae;
+}
+
+.head .wrapper .pic-info {
+    width: 300px;
+    position: absolute;
+    right: 50px;
+    top: 0px;
+}
+
+.head .wrapper .pic-info>a {
+    margin-right: 44px;
+}

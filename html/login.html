@@ -1,13 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="../img/duoshan.ico">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="../src/jquery-3.4.1.js"></script>
+    <script src="../src/include.js"></script>
+    <script src="../src/captcha.js"></script>
+    <script src="../js/login.js"></script>
     <title>欢迎登录</title>
 </head>
+
 <body>
-    
+    <div id="ds">
+        <div class="login">
+            <div class="header">
+                <div class="wrapper">
+                    <a href="http://127.0.0.1/code/tempDepot1/duoshan/html/duoShan.html#"><img src="../img/index/loginlg.png" alt=""></a>
+                </div>
+            </div>
+            <div class="login-main">
+                <div class="wrapper">
+                    <div class="pic">
+                        <img src="../img/index/ia_100000001.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="type">
+                            <span class="pad">密码登录</span>
+                            <span class="tel">手机登录</span>
+                        </div>
+                        <form>
+                            <div class="pass-login">
+                                <div class="field">
+                                    <input placeholder="用户名/手机号码" id="username" name="username" type="text" maxlength="32">
+                                    <span class="errorDes">111</span>
+                                </div>
+                                <div class="field">
+                                    <input placeholder="密码" id="password" name="password" type="password" maxlength="32">
+                                    <span class="errorDes"></span>
+                                </div>
+                                <div class="field">
+                                    <input placeholder="验证码" id="imgCode" name="imgCode" type="text" maxlength="4" style="border-bottom: 1px #dddddd solid;">
+                                    <canvas width="75" height="25" id="captcha"></canvas>
+                                    <span class="errorDes"></span>
+                                </div>
+                            </div>
+
+                            <div class="tell-login">
+                                    <div class="field">
+                                            <input placeholder="手机号(仅支持中国大陆)" id="phoneusername" name="phoneusername" type="text" maxlength="11">
+                                            <span class="errorDes">111</span>
+                                        </div>
+                                     
+                                        <div class="field">
+                                            <input placeholder="验证码" id="phoneimgCode" name="phoneimgCode" type="text" maxlength="4" >
+                                            <canvas width="75" height="25" id="captcha1"></canvas>
+                                            <span class="errorDes"></span>
+                                        </div>
+                                        <div class="field">
+                                                <input placeholder="手机验证码" id="phonecode" name="phonecode" type="text" maxlength="6" style="border-bottom: 1px #dddddd solid;">
+                                                <span class="errorDes"></span>
+                                                <!-- <b class="gain">获取验证码</b> -->
+                                                <b class="gain code-sms " style="display: inline;" id="gain">获取验证码</b> 
+                                                <b class="gain code-sms" style="display: none;">重试60s</b>
+                                            </div>
+                            </div>
+                        </form>
+                       <div class="go">
+                        <button class="login-submit" id="loginBtn" type="button">登 录</button>
+                        <button class="login-submit login-submit1" id="loginBtn1" type="button">登 录</button>
+                        <b class="login-error"></b>
+                       </div>
+                        <label class="remeber"><input type="checkbox" id="Check" >记住我</label>
+                        <div style="float: right" >
+                            <a class="sign" href="http://127.0.0.1/code/tempDepot1/duoshan/html/register.html">立即注册</a>
+                            <a class="forget" href="">忘记密码</a>
+                        </div>
+                        <div class="third-login">
+                            <div class="line"></div>
+                            <div class="title">第三方登录</div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="third-logo">
+                            <a href=""><img src="../img/index/ia_100000004.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <include src="./footer.html"></include>
+        </div>
+    </div>
 </body>
+
 </html>
