@@ -21,18 +21,18 @@ $(function () {
                     //  console.log(value.type);
                     let item = value.classify.map(value => {
                         let item1 = value.list.map(value => {
-                            return ` <dd><a href="">${value}</a></dd>`
+                            return ` <dd><a href="http://127.0.0.1/code/tempDepot1/duoshan/html/list.html#">${value}</a></dd>`
                         }).join("")
                         return `<dl> <dt>${value.title} : ${item1}</dl>`
                     }).join("");
                     let item2 = value.src.map(value => {
-                        return ` <a href="" class="show"><img src="${value}" alt=""></a>`
+                        return ` <a href="http://127.0.0.1/code/tempDepot1/duoshan/html/list.html#" class="show"><img src="${value}" alt=""></a>`
 
                     }).join("");
                     let item3 = value.hot.map(value => {
-                        return ` <li><a href="">${value}</a></li>`
+                        return ` <li><a href="http://127.0.0.1/code/tempDepot1/duoshan/html/list.html#">${value}</a></li>`
                     }).join("");
-                    return `<li><a href="" class="main_son">${value.type} ></a>
+                    return `<li><a href="http://127.0.0.1/code/tempDepot1/duoshan/html/list.html#" class="main_son">${value.type} ></a>
                     <div class="cat-content clearfix">
                     <ul class="top ">
                     ${item3}
@@ -472,7 +472,7 @@ $(function () {
         success: function (data) {
             // console.log(data);
             //  renderUI(data, '0', $(".box1"))
-            (new renderGoodsList(data, $(".box1"),true)).init()
+            (new renderGoodsList(data, $(".box1"), true)).init()
         }
     });
 
@@ -491,7 +491,7 @@ $(function () {
         success: function (data) {
             // console.log(data);
             //  renderUI(data, '0', $(".box1"))
-            (new renderGoodsList(data, $(".box2"),false)).init()
+            (new renderGoodsList(data, $(".box2"), false)).init()
         }
     });
 
@@ -510,7 +510,7 @@ $(function () {
         success: function (data) {
             // console.log(data);
             //  renderUI(data, '0', $(".box1"))
-            (new renderGoodsList(data, $(".box3"),false)).init()
+            (new renderGoodsList(data, $(".box3"), false)).init()
         }
     });
 
@@ -529,7 +529,7 @@ $(function () {
         success: function (data) {
             // console.log(data);
             //  renderUI(data, '0', $(".box1"))
-            (new renderGoodsList(data, $(".box4"),true)).init()
+            (new renderGoodsList(data, $(".box4"), true)).init()
         }
     });
 
@@ -548,7 +548,7 @@ $(function () {
         success: function (data) {
             // console.log(data);
             //  renderUI(data, '0', $(".box1"))
-            (new renderGoodsList(data, $(".box5"),false)).init()
+            (new renderGoodsList(data, $(".box5"), false)).init()
         }
     });
 
@@ -561,7 +561,7 @@ $(function () {
         }
     });
     class renderGoodsList {
-        constructor(data, root ,status) {
+        constructor(data, root, status) {
             this.data = data;
             this.root = root;
             this.status = status;
@@ -593,14 +593,14 @@ $(function () {
             this.first.appendChild(this.oul);
             this.goodsList.appendChild(this.h2);
 
-            if (this.status == true){
+            if (this.status == true) {
                 this.goodsLeft.appendChild(this.first);
-            this.goodsLeft.appendChild(this.minder);
-            this.goodsLeft.appendChild(this.newBig);    
-            }else if (this.status == false){
-                this.goodsLeft.appendChild(this.newBig); 
                 this.goodsLeft.appendChild(this.minder);
-                this.goodsLeft.appendChild(this.first); 
+                this.goodsLeft.appendChild(this.newBig);
+            } else if (this.status == false) {
+                this.goodsLeft.appendChild(this.newBig);
+                this.goodsLeft.appendChild(this.minder);
+                this.goodsLeft.appendChild(this.first);
             }
             this.goodsList.appendChild(this.goodsLeft);
         }
@@ -623,7 +623,7 @@ $(function () {
             this.newBig.innerHTML = `
             <h3>新鲜抢批</h3>
             <div class="newBanner"></div>`;
-      
+
 
         }
     }

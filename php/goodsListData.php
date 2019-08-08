@@ -5,13 +5,19 @@ $con =mysqli_connect("127.0.0.1","root","","duoshan");
 
 $data = file_get_contents("goodsListData.json");
 $arr = json_decode($data,true);
-// var_dump($arr) ;
+// print_r($arr) ;
 
 for($i=0;$i<count($arr);$i++){
+
     $src = $arr[$i]["src"];
     $des = $arr[$i]["des"];
-    // var_dump($i);
-    $sql = "INSERT INTO `duoshan`.`goodslistdata` (`src`, `des`) VALUES ('$src', '$des')";
-    mysqli_query($con,$sql);
+    $price = $arr[$i]["price"];
+    $oldprice = $arr[$i]["oldprice"];
+    $shop = $arr[$i]["shop"];
+    $gid = $i;
+    
+    $sql = "INSERT INTO `duoshan`.`goodslistdata` (`src`, `des`, `price`, `oldprice`, `shop`, `gid`) VALUES ('$src', '$des', ' $price', '$oldprice', '$shop', '$gid')";
+    $res = mysqli_query($con,$sql);
+    var_dump($res);
 }
 ?>
