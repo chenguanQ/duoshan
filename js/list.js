@@ -1,5 +1,5 @@
 $(function () {
-   
+
 
     //热门商品列表
     $.ajax({
@@ -7,8 +7,8 @@ $(function () {
         url: "../php/hotGoodsListData.json",
         dataType: "json",
         success: function (response) {
-            let html = response.map(value=>{
-              return `   <li class="item">
+            let html = response.map(value => {
+                return `   <li class="item">
               <a href="" style="color: #646464;">
                   <dl>
                       <dt class="pic"><img src="${value.src}" alt=""></dt>
@@ -21,8 +21,8 @@ $(function () {
 
               </a>
           </li>`
-                
-            }).join("");      
+
+            }).join("");
             $(".hotGoods").html(html);
         }
     });
@@ -40,12 +40,12 @@ $(function () {
             //  dataType: "json",
             success: function (response) {
                 let dat = JSON.parse(response)
-               // console.log(dat);
+                // console.log(dat);
                 // [2] 根据数据渲染页面
                 let res = dat.data.map(ele => {
                     return `
                     <li class="item">
-                    <a href="" style="color: #646464;">
+                    <a href="javascript:void(0);" style="color: #646464;">
                         <dl>
                             <dt class="pic"><img src="${ele.src}" alt=""></dt>
                             <dd class="price">
@@ -73,7 +73,7 @@ $(function () {
         url: "../php/getPageCount.php",
         dataType: "json",
         success: function (response) {
-          //  console.log(response);
+            //  console.log(response);
             let pageSize = response.data.count;
             var res = '';
             for (let i = 0; i < pageSize; i++) {
@@ -96,8 +96,15 @@ $(function () {
 
     $(".filtrate li").click(function () {
         orderType = $(this).index();
-      //  console.log(orderType);
-        
-       getList(0);
+        //  console.log(orderType);
+
+        getList(0);
     })
+
+    //把要跳转详情的商品的数值值发过去给详情
+    $(".goods-list").on("click", ".item", function () {   
+       var mark = $(this).children("dl").children("a").children(".des").text();
+    console.log(mark);
+    window.location.href = `http://127.0.0.1/code/tempDepot1/duoshan/html/details.html?id=${mark}`;
+    });
 })
