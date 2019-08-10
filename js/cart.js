@@ -9,6 +9,8 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 console.log(data);
+              console.log( data.length);
+              
                 targetData = data;
                 /* 根据数据来渲染页面 */
                 let html = data.map(function (ele) {
@@ -45,6 +47,7 @@ $(function () {
                </li>`
                 }).join("");
                 $(".cart-list").html(html);
+                $(".piece").html(data.length);
                 // console.log(targetData);
                 computedTotalPrice();
             }
@@ -163,4 +166,7 @@ $(function () {
         }
 
     })
+    //输入框失去焦点改变数量
+
+
 })

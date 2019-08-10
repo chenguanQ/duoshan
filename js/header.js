@@ -29,11 +29,20 @@ $(function () {
     $(".h-left").html(html);
   }
   //点击退出,清除用户资料
-$(".h-left").on("click",".exit",function(){
+  $(".h-left").on("click", ".exit", function () {
     localStorage.removeItem("username");
     localStorage.removeItem("phone");
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("phone");
-})
+  })
+
+  //导入
+ 
 
 })
+// import {
+//   text
+// } from '../js/details.js';
+
+// console.log(text);
+

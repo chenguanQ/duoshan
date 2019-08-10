@@ -89,12 +89,13 @@ $(function () {
 
 
     //pushcart
+
     function pushcart() {
         let goodid = itemData[0].gid;
         let price = itemData[0].price;
         let color = $(this).parent().siblings(".color").children(".clearfix").children(".active").text();
         let size = $(this).parent().siblings(".size").children(".clearfix").children(".active").text();
-        //    console.log( color,size);
+        console.log(color, size);
         $.ajax({
             type: "get",
             url: "../php/addCart.php",
@@ -102,8 +103,10 @@ $(function () {
             dataType: "json",
             success: function (response) {
                 // console.log(response);
-                var text = response["totalRow"];
+                let text = response["totalRow"];
                 $(".cart-num").html(`(${text})`);
+                //导出
+                // export { text };
             }
         });
     }
@@ -111,9 +114,9 @@ $(function () {
     $(".add").click(pushcart)
 
     //跳转购物车
-    $(".buy").click(function () {
-        pushcart();
-        window.location.href = "http://127.0.0.1/code/tempDepot1/duoshan/html/cart.html";
+    $(".buy").click(pushcart)
 
-    })
+
+
+
 })

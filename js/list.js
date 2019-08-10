@@ -11,8 +11,8 @@ $(function () {
                 return `   <li class="item">
               <a href="" style="color: #646464;">
                   <dl>
-                      <dt class="pic"><img src="${value.src}" alt=""></dt>
-                      <dd class="price">
+                      <dt class="pic"><img src="${value.src}" alt=""></dt>  
+                      <dd class="price">                                                                 
                           <b class="sales"></b>
                           ¥${value.price} <span class="oldPrice"> 建议零售价:¥${value.oldprice} </span></dd>
                       <dd class="des">${value.des}</dd>
@@ -47,7 +47,7 @@ $(function () {
                     <li class="item">
                     <a href="javascript:void(0);" style="color: #646464;">
                         <dl>
-                            <dt class="pic"><img src="${ele.src}" alt=""></dt>
+                            <dt class="pic"><img src=" ../img/index/_block.jpg" alt="" data-src ="${ele.src}"></dt>     
                             <dd class="price">
                                 <b class="sales"></b>
                                 ¥${ele.price} <span class="oldPrice"> 建议零售价:¥${ele.oldprice} </span></dd>
@@ -91,7 +91,9 @@ $(function () {
         getList(index);
         $('html,body').animate({
             scrollTop: 0
-        }, 500);
+        }, 700);
+
+       
     })
 
     $(".filtrate li").click(function () {
@@ -102,10 +104,36 @@ $(function () {
     })
 
     //把要跳转详情的商品的数值值发过去给详情
-    $(".goods-list").on("click", ".item", function () {   
-       var mark = $(this).children("dl").children("a").children(".des").text();
-       
-    console.log(mark);
-    window.location.href = `http://127.0.0.1/code/tempDepot1/duoshan/html/details.html?id=${mark}`;
+    $(".goods-list").on("click", ".item", function () {
+        var mark = $(this).children("dl").children("a").children(".des").text();
+
+        console.log(mark);
+        window.location.href = `http://127.0.0.1/code/tempDepot1/duoshan/html/details.html?id=${mark}`;
     });
+
+
+ //监听页面滚动条，懒加载图片
+ $(window).scroll(handleScroll);
+
+    //图片懒加载
+    function handleScroll() {
+        let imgs = $("img[data-src]");
+        // console.log(imgs);
+        //获取滚动条当前距离top的位置
+        let bodyScrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+        //获取页面可视高度
+        let windowHeight = window.innerHeight;
+        // console.log(bodyScrollHeight, windowHeight);
+        for (let i = 0; i < imgs.length; i++) {
+            let imgHeight = parseInt($(imgs[i]).offset().top);
+            if (imgHeight < windowHeight + bodyScrollHeight && imgHeight >= bodyScrollHeight) {
+
+                $(imgs).eq(i).attr("src", $(imgs).eq(i).attr("data-src"))
+
+            }
+
+
+        }
+
+    }
 })

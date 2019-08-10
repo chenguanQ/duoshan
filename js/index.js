@@ -679,44 +679,5 @@ $(function () {
             $(".tale-list").html(html);
         }
     });
-    //footQQ动态效果
-    // let status = true;
-    // $(".qq").click(function () {
-    //     $(this).animate({
-    //         "right": -`${$(this).children("img").width()}`,
-    //         "right": "0",
-    //     }, 1000,function(){
-    //         $(this).children("img").attr("src","../img/index/ia_100000276.png")
-    //     })
-
-    // })
+  
 })
-
-//  let tempdiv = "";
-// let html = data.map(value => {
-//         tempdiv = value.classify.map(value => {
-//             return ` <li><a href="" title="t恤">${value}</a></li>`
-//         }).join("");
-//         // console.log(tempul);
-
-//         let temp = value.leftsrc.map((value, i) => {
-//             return `<li ><a href=""><img src="${value}" alt=""></a>
-//             </li>`
-
-//         }).join("");
-//         // console.log(temp);
-//         return `  <div class="goods-list">
-//        <h2>${value.type}<a href="" class="more">更多好货</a></h2>
-//        <div class="goods-left">
-//            <ul>
-//             ${temp}
-//                <li class="new">
-//                    <h3>新鲜抢批</h3>
-//                    <div class="newBanner"></div>               
-//                </li>
-//            </ul>
-//        </div>
-//    </div>`
-//  }).join("");
-// root.html(html);
-// root.children(".goods-list").children(".goods-left").children("ul").children("li").eq(index).append(` <ul class="clearfix">${tempul} </ul>`);
