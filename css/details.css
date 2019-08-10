@@ -327,7 +327,10 @@ body {
     border: 2px solid #eaeaea;
 }
 
-.body .right .color>ul>li:nth-child(1) {
+/* .body .right .color>ul>li:nth-child(1) {
+    border: 2px solid #f0123a;
+} */
+.body .right .color .active {
     border: 2px solid #f0123a;
 }
 
@@ -360,10 +363,13 @@ body {
     border: 2px solid #eaeaea;
 }
 
-.body .right .size>ul>li:nth-child(1) {
+/* .body .right .size>ul>li:nth-child(1) {
+    border: 2px solid #f0123a;
+} */
+
+.body .right .size .active {
     border: 2px solid #f0123a;
 }
-
 .body .right .size>span {
     font-size: 15px;
     line-height: 20px;

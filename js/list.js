@@ -104,6 +104,7 @@ $(function () {
     //把要跳转详情的商品的数值值发过去给详情
     $(".goods-list").on("click", ".item", function () {   
        var mark = $(this).children("dl").children("a").children(".des").text();
+       
     console.log(mark);
     window.location.href = `http://127.0.0.1/code/tempDepot1/duoshan/html/details.html?id=${mark}`;
     });

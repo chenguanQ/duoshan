@@ -56,33 +56,64 @@ $(function () {
 
 
     $(".color> ul >li").click(function () {
-        $(this).css("border", "2px solid #f0123a").siblings().css("border", "2px solid #eaeaea");
+        $(this).addClass("active").siblings().removeClass("active");
     })
 
     $(".size> ul >li").click(function () {
-        $(this).css("border", "2px solid #f0123a").siblings().css("border", "2px solid #eaeaea")
+        $(this).addClass("active").siblings().removeClass("active");
 
     })
 
     //根据列表页传过来的ID取出对应的数据渲染
     let id = window.location.search.slice(1);
-    console.log(id);
-    
+    //console.log(id);
+    let itemData;
     $.ajax({
         type: "post",
         url: "../php/detGetGoods.php",
         data: `${id}`,
         success: function (response) {
             let res = JSON.parse(response).data;
-            console.log(res);
+            itemData = res;
+            // console.log(res);
             res.forEach(value => {
                 $("#big").attr("src", value.src);
                 $("#magnify").attr("src", value.src);
                 $(".list .min:first-child").children().attr("src", value.src);
-                $(".goods-name").text(value.des);     
+                $(".goods-name").text(value.des);
                 $(".value_bot").text(`¥${value.price}`)
             })
 
         }
     });
+
+
+    //pushcart
+    function pushcart() {
+        let goodid = itemData[0].gid;
+        let price = itemData[0].price;
+        let color = $(this).parent().siblings(".color").children(".clearfix").children(".active").text();
+        let size = $(this).parent().siblings(".size").children(".clearfix").children(".active").text();
+        //    console.log( color,size);
+        $.ajax({
+            type: "get",
+            url: "../php/addCart.php",
+            data: `goodid=${goodid}&price=${price}&color=${color}&size=${size}`,
+            dataType: "json",
+            success: function (response) {
+                // console.log(response);
+                var text = response["totalRow"];
+                $(".cart-num").html(`(${text})`);
+            }
+        });
+    }
+    //添加购物车
+    $(".add").click(pushcart)
+
+    //跳转购物车
+    $(".buy").click(function () {
+        pushcart();
+        window.location.href = "http://127.0.0.1/code/tempDepot1/duoshan/html/cart.html";
+
+    })
 })
